@@ -1,0 +1,555 @@
+{
+  "info": {
+    "_postman_id": "0a38162b-400c-4ef8-b9d8-045cbb6a8738",
+    "name": "Urban Farming Platform API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54074165",
+    "_collection_link": "https://go.postman.co/collection/54074165-0a38162b-400c-4ef8-b9d8-045cbb6a8738?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "01 - Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"customer\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/auth/register' --header 'Content-Type: application/json' --data '{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\",\n  \"role\": \"customer\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "02 - Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/auth/login' --header 'Content-Type: application/json' --data '{\n  \"email\": \"test@example.com\",\n  \"password\": \"123456\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "03 - Get My Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/me",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "me"
+          ]
+        },
+        "description": "Generated from cURL: curl --request GET --url '{{baseUrl}}/api/auth/me' --header 'Authorization: Bearer {{token}}'"
+      },
+      "response": []
+    },
+    {
+      "name": "04 - Get All Products",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/produce?page=1&limit=10",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "produce"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --request GET --url '{{baseUrl}}/api/produce?page=1&limit=10'"
+      },
+      "response": []
+    },
+    {
+      "name": "05 - Create Vendor Profile",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"farmName\": \"Green Valley Farm\",\n  \"farmDescription\": \"Sustainable urban farm providing fresh organic produce\",\n  \"size\": 500\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/vendor/profile",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "vendor",
+            "profile"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/vendor/profile' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"farmName\": \"Green Valley Farm\",\n  \"farmDescription\": \"Sustainable urban farm providing fresh organic produce\",\n  \"size\": 500\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "06 - Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Organic Tomato\",\n  \"description\": \"Fresh organic tomatoes from urban farm\",\n  \"price\": 120,\n  \"category\": \"vegetables\",\n  \"availableQuantity\": 50\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/vendor/produce",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "vendor",
+            "produce"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/vendor/produce' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"name\": \"Organic Tomato\",\n  \"description\": \"Fresh organic tomatoes from urban farm\",\n  \"price\": 120,\n  \"category\": \"vegetables\",\n  \"availableQuantity\": 50\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "07 - Get Rental Spaces",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/rentals?page=1&limit=10",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "rentals"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --request GET --url '{{baseUrl}}/api/rentals?page=1&limit=10'"
+      },
+      "response": []
+    },
+    {
+      "name": "08 - Book Rental Space",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rentalSpaceId\": \"YOUR_RENTAL_SPACE_ID\",\n  \"startDate\": \"2024-01-01\",\n  \"endDate\": \"2024-01-30\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/rentals/book",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "rentals",
+            "book"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/rentals/book' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"rentalSpaceId\": \"YOUR_RENTAL_SPACE_ID\",\n  \"startDate\": \"2024-01-01\",\n  \"endDate\": \"2024-01-30\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "09 - Get Community Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/community/posts?page=1&limit=10",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community",
+            "posts"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "Generated from cURL: curl --request GET --url '{{baseUrl}}/api/community/posts?page=1&limit=10'"
+      },
+      "response": []
+    },
+    {
+      "name": "10 - Create Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Tips for Urban Gardening\",\n  \"content\": \"Here are some amazing tips for starting your urban garden...\",\n  \"category\": \"gardening_tips\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/community/posts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "community",
+            "posts"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/community/posts' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"title\": \"Tips for Urban Gardening\",\n  \"content\": \"Here are some amazing tips for starting your urban garden...\",\n  \"category\": \"gardening_tips\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "11 - Submit Certification",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"certifyingAgency\": \"USDA_Organic\",\n  \"certificateNumber\": \"CERT-12345\",\n  \"issueDate\": \"2024-01-01\",\n  \"expiryDate\": \"2025-01-01\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/vendor/certification",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "vendor",
+            "certification"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/vendor/certification' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"certifyingAgency\": \"USDA_Organic\",\n  \"certificateNumber\": \"CERT-12345\",\n  \"issueDate\": \"2024-01-01\",\n  \"expiryDate\": \"2025-01-01\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "12 - Get My Plants",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/plants",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "plants"
+          ]
+        },
+        "description": "Generated from cURL: curl --request GET --url '{{baseUrl}}/api/plants' --header 'Authorization: Bearer {{token}}'"
+      },
+      "response": []
+    },
+    {
+      "name": "13 - Create Plant",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{authToken}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"plantName\": \"Tomato Plant\",\n  \"plantType\": \"vegetable\",\n  \"plantingDate\": \"2024-01-01\",\n  \"expectedHarvestDate\": \"2024-03-01\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/plants",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "plants"
+          ]
+        },
+        "description": "Generated from cURL: curl --request POST --url '{{baseUrl}}/api/plants' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"plantName\": \"Tomato Plant\",\n  \"plantType\": \"vegetable\",\n  \"plantingDate\": \"2024-01-01\",\n  \"expectedHarvestDate\": \"2024-03-01\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "14 - Update Plant Health",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"healthStatus\": \"excellent\",\n  \"growthStage\": \"fruiting\",\n  \"notes\": \"Looking healthy and growing well!\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/plants/YOUR_PLANT_ID/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "plants",
+            "YOUR_PLANT_ID",
+            "health"
+          ]
+        },
+        "description": "Generated from cURL: curl --request PUT --url '{{baseUrl}}/api/plants/YOUR_PLANT_ID/health' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"healthStatus\": \"excellent\",\n  \"growthStage\": \"fruiting\",\n  \"notes\": \"Looking healthy and growing well!\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "15 - Verify Certification (Admin)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "disabled": false
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "disabled": false
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"verified\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/admin/certification/YOUR_CERT_ID",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "admin",
+            "certification",
+            "YOUR_CERT_ID"
+          ]
+        },
+        "description": "Generated from cURL: curl --request PUT --url '{{baseUrl}}/api/admin/certification/YOUR_CERT_ID' --header 'Authorization: Bearer {{token}}' --header 'Content-Type: application/json' --data '{\n  \"status\": \"verified\"\n}'"
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
